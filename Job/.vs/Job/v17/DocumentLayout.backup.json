@@ -1,14 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\iSpan\\Desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\Work-Exchange-Platform_v05\\Job\\",
+  "WorkspaceRootPath": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|c:\\users\\ispan\\desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\work-exchange-platform_v05\\job\\job\\areas\\back\\views\\profiles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|solutionrelative:job\\areas\\back\\views\\profiles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|c:\\users\\cy199\\onedrive\\desktop\\work-exchange-platform\\job\\job\\areas\\back\\views\\apply\\applylist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|solutionrelative:job\\areas\\back\\views\\apply\\applylist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|c:\\users\\ispan\\desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\work-exchange-platform_v05\\job\\job\\areas\\back\\views\\shared\\_layoutback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|solutionrelative:job\\areas\\back\\views\\shared\\_layoutback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|c:\\users\\cy199\\onedrive\\desktop\\work-exchange-platform\\job\\job\\areas\\back\\controllers\\applycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|solutionrelative:job\\areas\\back\\controllers\\applycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,33 +22,43 @@
           "Children": [
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\iSpan\\Desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\Work-Exchange-Platform_v05\\Job\\Job\\Areas\\Back\\Views\\Profiles\\Index.cshtml",
-              "RelativeDocumentMoniker": "Job\\Areas\\Back\\Views\\Profiles\\Index.cshtml",
-              "ToolTip": "C:\\Users\\iSpan\\Desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\Work-Exchange-Platform_v05\\Job\\Job\\Areas\\Back\\Views\\Profiles\\Index.cshtml",
-              "RelativeToolTip": "Job\\Areas\\Back\\Views\\Profiles\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvxEAAAAZAAAAAAAAAA==",
+              "Title": "ApplyList.cshtml",
+              "DocumentMoniker": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\Job\\Areas\\Back\\Views\\Apply\\ApplyList.cshtml",
+              "RelativeDocumentMoniker": "Job\\Areas\\Back\\Views\\Apply\\ApplyList.cshtml",
+              "ToolTip": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\Job\\Areas\\Back\\Views\\Apply\\ApplyList.cshtml*",
+              "RelativeToolTip": "Job\\Areas\\Back\\Views\\Apply\\ApplyList.cshtml*",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAxwHcAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-17T06:24:02.194Z",
+              "WhenOpened": "2025-09-17T07:59:58.51Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "_LayoutBack.cshtml",
-              "DocumentMoniker": "C:\\Users\\iSpan\\Desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\Work-Exchange-Platform_v05\\Job\\Job\\Areas\\Back\\Views\\Shared\\_LayoutBack.cshtml",
-              "RelativeDocumentMoniker": "Job\\Areas\\Back\\Views\\Shared\\_LayoutBack.cshtml",
-              "ToolTip": "C:\\Users\\iSpan\\Desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\Work-Exchange-Platform_v05\\Job\\Job\\Areas\\Back\\Views\\Shared\\_LayoutBack.cshtml",
-              "RelativeToolTip": "Job\\Areas\\Back\\Views\\Shared\\_LayoutBack.cshtml",
-              "ViewState": "AgIAAKsAAAAAAAAAAADwv8MAAABjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-09-17T06:23:43.058Z",
+              "Title": "ApplyController.cs",
+              "DocumentMoniker": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\Job\\Areas\\Back\\Controllers\\ApplyController.cs",
+              "RelativeDocumentMoniker": "Job\\Areas\\Back\\Controllers\\ApplyController.cs",
+              "ToolTip": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\Job\\Areas\\Back\\Controllers\\ApplyController.cs",
+              "RelativeToolTip": "Job\\Areas\\Back\\Controllers\\ApplyController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-17T07:59:55.131Z",
               "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 779,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             }
           ]
         }

@@ -1,31 +1,16 @@
-﻿@model Job.ViewModel.ApplyManagementViewModel
+﻿@model Job.ViewModel.CApplyManagementViewModel
 
-@{
-    // Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
+
         @{
             ViewData["Title"] = "Pairsuccess";
         }
-    </title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Job.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
-</head>
-<body>
+
+
+
     <h1>媒合成功管理<i class="fa-solid fa-list-ul"></i></h1>
 
-    <form asp-action="Pairsuccess" method="get">
+    <form asp-action="MatchingList" method="get">
         <div id="QueryPanel" class="card mb-3">
             <div class="card-header">
                 資料查詢
@@ -55,6 +40,9 @@
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i>查詢</button>
+                <a asp-action="MatchingList" asp-controller="Apply" asp-area="Back" class="btn btn-secondary">
+                    <i class="bi bi-x-circle"></i> 清除查詢
+                </a>
             </div>
         </div>
     </form>
@@ -105,14 +93,3 @@
             </table>
         </div>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="https://unpkg.com/vue@3"></script>
-    <script src="https://malsup.github.io/jquery.blockUI.js"></script>
-</body>
-
-</html>
-
-
-

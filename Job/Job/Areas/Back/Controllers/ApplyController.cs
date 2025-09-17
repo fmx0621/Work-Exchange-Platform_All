@@ -14,65 +14,64 @@ namespace Job.Areas.Back.Controllers
     [Area("Back")]
     public class ApplyController : Controller
     {
-        public IActionResult ApplyList(ApplyManagementViewModel vm)
+        public IActionResult ApplyList(CApplyManagementViewModel vm)
         {
             JobDbContext db = new JobDbContext();
-            var sql資料 = db.TWorkerApplies.AsQueryable(); // 先取出 TworkerApplies（申請紀錄），但還沒查，等後面篩選。
+            var query = db.TWorkerApplies.AsQueryable();
 
-            // 關鍵字搜尋
+            // 關鍵字篩選
             if (!string.IsNullOrEmpty(vm.txtKeyword))
             {
-                sql資料 = sql資料.Where(p => p.WorkerName.Contains(vm.txtKeyword) || p.ApplyOwner.Contains(vm.txtKeyword));
+                query = query.Where(p => p.WorkerName.Contains(vm.txtKeyword)
+                                        || p.ApplyOwner.Contains(vm.txtKeyword));
             }
 
-            // 狀態搜尋
+            // 業主回覆篩選 (對應 townerAdmission.ReplySituation)
             if (!string.IsNullOrEmpty(vm.ApplyStatus))
             {
-                sql資料 = sql資料.Where(p => p.ApplySituation == vm.ApplyStatus);
+                var memberIds = db.TOwnerAdmissions
+                                  .Where(o => o.ReplySituation == vm.ApplyStatus)
+                                  .Select(o => o.MemberId)
+                                  .ToList();
+
+                query = query.Where(w => memberIds.Contains(w.MemberId));
             }
 
-            // 狀態下拉選單
-            ViewBag.StatusList = new SelectList(
-                new List<string> { "待處理", "未錄取", "已錄取" },
-                vm.ApplyStatus
-            );
-
-            // 日期區間篩選
+            // 日期範圍
             if (vm.StartDate.HasValue)
             {
-                var startDate = vm.StartDate.Value.Date;
-                sql資料 = sql資料.Where(p => p.ApplyDate >= startDate);
+                var start = vm.StartDate.Value.Date;
+                query = query.Where(p => p.ApplyDate >= start);
             }
-
             if (vm.EndDate.HasValue)
             {
-                var endDate = vm.EndDate.Value.Date.AddDays(1).AddMilliseconds(-1);
-                sql資料 = sql資料.Where(p => p.ApplyDate <= endDate);
+                var end = vm.EndDate.Value.Date.AddDays(1).AddMilliseconds(-1);
+                query = query.Where(p => p.ApplyDate <= end);
             }
 
-            // 查 WorkerApplies
-            if (sql資料 != null)
+            var workerList = query.ToList();
+
+            // 抓對應的 OwnerAdmissions
+            var memberIdsAll = workerList.Select(w => w.MemberId).ToList();
+            var ownerAdmissions = db.TOwnerAdmissions
+                                    .Where(o => memberIdsAll.Contains(o.MemberId))
+                                    .ToList();
+
+            // 換宿者回覆篩選
+            if (!string.IsNullOrEmpty(vm.WorkerReply))
             {
-                vm.TworkerApplies = sql資料.ToList();
-            }
-            else
-            {
-                vm.TworkerApplies = new List<TWorkerApply>();
+                workerList = workerList
+                    .Where(w => w.ApplySituation == vm.WorkerReply)
+                    .ToList();
             }
 
-            // 取出 MemberIds 列表 (避免 NullReferenceException)
-            var MemberIds = vm.TworkerApplies.Any()
-                ? vm.TworkerApplies.Select(w => w.MemberId).ToList()
-                : new List<int>();
-            //Any() 是 LINQ 擴展方法，它會檢查集合中是否有至少一個元素。這個方法會返回 true 或 false
+            // VM 設定
+            vm.TworkerApplies = workerList;
+            vm.TownerAdmissions = ownerAdmissions;
 
-
-
-            // 查對應的 OwnerAdmissions
-            vm.TownerAdmissions = MemberIds.Any()
-                ? db.TOwnerAdmissions.Where(o => MemberIds.Contains(o.MemberId)).ToList()
-                : new List<TOwnerAdmission>();
-
+            // 下拉選單
+            ViewBag.StatusList = new SelectList(new List<string> { "待處理", "已接受", "未接受" }, vm.ApplyStatus);
+            ViewBag.WorkerReplyList = new SelectList(new List<string> { "待處理", "已錄取", "未錄取" }, vm.WorkerReply);
 
             return View(vm);
         }
@@ -116,7 +115,7 @@ namespace Job.Areas.Back.Controllers
 
             var owner = db.TOwnerAdmissions.FirstOrDefault(o => o.MemberId == work.MemberId);
 
-            var vm = new ApplyManagementViewModel
+            var vm = new CApplyManagementViewModel
                 {
                 TworkerApply = work,
                 TownerAdmissions = new List<TOwnerAdmission> { owner ?? new TOwnerAdmission()
@@ -127,7 +126,7 @@ namespace Job.Areas.Back.Controllers
         }
 
         //-----------------------------------------------------------------------------------------
-        public IActionResult MatchingList(ApplyManagementViewModel vm)
+        public IActionResult MatchingList(CApplyManagementViewModel vm)
         {
             JobDbContext db = new JobDbContext();
             var sql資料 = db.TWorkerApplies.AsQueryable();
@@ -219,7 +218,7 @@ namespace Job.Areas.Back.Controllers
                 return RedirectToAction("MatchingList");
 
             // 建立 ViewModel
-            var vm = new ApplyManagementViewModel
+            var vm = new CApplyManagementViewModel
             {
                 TworkerApplies = new List<TWorkerApply> { worker },
                 TownerAdmissions = ownerAdmissions
