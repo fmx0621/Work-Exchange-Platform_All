@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\Job\\Job.csproj": {}
+    "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform_All\\Job\\Job\\Job.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\Job\\Job.csproj": {
+    "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform_All\\Job\\Job\\Job.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\Job\\Job.csproj",
+        "projectUniqueName": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform_All\\Job\\Job\\Job.csproj",
         "projectName": "Job",
-        "projectPath": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\Job\\Job.csproj",
+        "projectPath": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform_All\\Job\\Job\\Job.csproj",
         "packagesPath": "C:\\Users\\cy199\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\Job\\obj\\",
+        "outputPath": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform_All\\Job\\Job\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

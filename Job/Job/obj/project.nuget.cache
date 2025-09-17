@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+lfir5ziAPE=",
+  "dgSpecHash": "mkSXMpvqrf8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform\\Job\\Job\\Job.csproj",
+  "projectFilePath": "C:\\Users\\cy199\\OneDrive\\Desktop\\Work-Exchange-Platform_All\\Job\\Job\\Job.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\cy199\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\cy199\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
