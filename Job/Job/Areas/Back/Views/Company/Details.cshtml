@@ -1,0 +1,51 @@
+﻿@model Job.Models.CCompanyAll
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+    <h2>公司詳細資料</h2>
+
+    <table class="table">
+        <tr>
+            <th>公司名稱</th>
+            <td>@Model.companyProfile?.Name</td>
+        </tr>
+        <tr>
+            <th>電話</th>
+            <td>@Model.companyProfile?.Phone</td>
+        </tr>
+        <tr>
+            <th>地址</th>
+            <td>@Model.companyProfile?.Address</td>
+        </tr>
+        <tr>
+            <th>登記名稱</th>
+            <td>@Model.companyVerification?.RegisteredName</td>
+        </tr>
+        <tr>
+            <th>登記地址</th>
+            <td>@Model.companyVerification?.RegisteredAddress</td>
+        </tr>
+        <tr>
+            <th>營業登記號碼</th>
+            <td>@Model.companyVerification?.BusinessRegNo</td>
+        </tr>
+        <tr>
+            <th>審核時間</th>
+            <td>@Model.companyVerification?.ApprovedAt?.ToString("yyyy-MM-dd")</td>
+        </tr>
+    </table>
+
+
+<div>
+
+    <a asp-action="List">返回</a>
+</div>
+</body>
+</html>

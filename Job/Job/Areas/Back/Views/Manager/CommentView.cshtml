@@ -1,0 +1,116 @@
+﻿@model IEnumerable<Job.Models.TMemberComment>
+@Html.Editor("FRating", "RatingInt")
+@Html.ValidationMessage("FRating", "", new { @class = "text-danger" })
+@{
+    ViewData["Title"] = "CommentView";
+    Layout = "~/Areas/Back/Views/Shared/_LayoutBack.cshtml";
+}
+
+<style>
+    .text-container{
+
+        width: 200px;
+    }
+
+    .text-hide{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+</style>
+
+<h1>審核</h1>
+@using (Html.BeginForm())
+{
+<div>
+    選擇條件：
+        @Html.DropDownList(
+        "txtReviewedKeyword",
+        new List<SelectListItem>
+        {
+        new SelectListItem { Text = "請選擇", Value = "" },  // 空值
+        new SelectListItem { Text = "True", Value = "True" },
+        new SelectListItem { Text = "False", Value = "False" }
+        },
+        new { @class = "form-control" }
+        )
+    <input type="submit" value="查詢" />
+</div>
+
+
+    <div>業主查詢 @Html.TextBox("txtKeyword") <input type="submit" value="查詢" /></div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CommentId)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.MemberName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reviewed)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="align-middle">
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CommentId)
+            </td>
+      
+            <td>
+                    @Html.DisplayFor(modelItem => item.MemberName)
+            </td>
+            <td>
+                <div class="text-container">
+                        <div class="text-hide">
+                        @Html.DisplayFor(modelItem => item.Comment)
+                        </div>
+                </div>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+                <td>
+                    @if (Convert.ToBoolean(item.Reviewed))
+                    {
+                        @Html.ActionLink("True (點我改 False)", "ToggleReviewed", new { id = item.CommentId }, new { @class = "btn btn-success" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("False (點我改 True)", "ToggleReviewed", new { id = item.CommentId }, new { @class = "btn btn-danger" })
+                    }
+                </td>
+            <td>
+            
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,55 @@
+﻿@model Job.Models.TManager
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>新增管理者帳號</h1>
+
+<h4>請輸入資料</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    
+            <div class="form-group">          
+                <label asp-for="ManagerName" class="control-label">管理者名稱</label>
+                <input asp-for="ManagerName" class="form-control" />
+                <span asp-validation-for="ManagerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Account" class="control-label">帳號</label>
+                <input asp-for="Account" class="form-control" />
+                <span asp-validation-for="Account" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label">密碼</label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PermissionId" class="control-label">權限ID</label>
+                <input asp-for="PermissionId" class="form-control" />
+                <span asp-validation-for="PermissionId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PermissionName" class="control-label">權限名稱</label>
+                <input asp-for="PermissionName" class="form-control" />
+                <span asp-validation-for="PermissionName" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="送出並新增" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">取消</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

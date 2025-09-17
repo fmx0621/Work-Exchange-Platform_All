@@ -1,0 +1,37 @@
+﻿body {
+    .rating
+
+{
+    direction: rtl;
+    display: inline-flex;
+}
+
+.rating input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.rating label {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: 2px;
+    cursor: pointer;
+    color: #ddd;
+}
+
+    .rating label::before {
+        content: '★';
+    }
+
+    .rating label:hover, .rating label:hover ~ label, .rating input:checked ~ label {
+        color: #f5c518;
+    }
+
+.rating input:focus + label {
+    outline: 1px dashed #999;
+    outline-offset: 2px;
+}
+}

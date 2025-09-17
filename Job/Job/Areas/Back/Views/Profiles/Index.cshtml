@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Job.Models.TMemberProfile>
+
+@{
+    ViewData["Title"] = "履歷管理";
+}
+
+<h4>履歷管理</h4>
+<p><a class="btn btn-primary" asp-action="Create">新增履歷</a></p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>姓名</th>
+            <th>學歷</th>
+            <th>語言</th>
+            <th>工作經驗</th>
+            <th>駕照</th>
+            <th>希望時間</th>
+            <th>換宿類型</th>
+            <th>期望待遇</th>
+            <th>聯絡方式</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Education</td>
+                <td>@item.Languages</td>
+                <td>@item.WorkExperience</td>
+                <td>@item.Licenses</td>
+                <td>@(item.AvailableFrom?.ToString("yyyy/MM")) - @(item.AvailableTo?.ToString("yyyy/MM"))</td>
+                <td>@item.PreferredCategories</td>
+                <td>@item.ExpectedBenefits</td>
+                <td>@item.ContactIg</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProfileId">編輯</a> |
+                    <a asp-action="Details" asp-route-id="@item.ProfileId">詳細</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ProfileId">刪除</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

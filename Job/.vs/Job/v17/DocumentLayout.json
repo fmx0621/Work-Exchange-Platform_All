@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\iSpan\\Desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\Work-Exchange-Platform_v05\\Job\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|c:\\users\\ispan\\desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\work-exchange-platform_v05\\job\\job\\areas\\back\\views\\shared\\_layoutback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|solutionrelative:job\\areas\\back\\views\\shared\\_layoutback.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|c:\\users\\ispan\\desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\work-exchange-platform_v05\\job\\job\\areas\\back\\views\\profiles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2471117C-1522-47BF-89C5-9F5A459058F4}|Job\\Job.csproj|solutionrelative:job\\areas\\back\\views\\profiles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\iSpan\\Desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\Work-Exchange-Platform_v05\\Job\\Job\\Areas\\Back\\Views\\Profiles\\Index.cshtml",
+              "RelativeDocumentMoniker": "Job\\Areas\\Back\\Views\\Profiles\\Index.cshtml",
+              "ToolTip": "C:\\Users\\iSpan\\Desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\Work-Exchange-Platform_v05\\Job\\Job\\Areas\\Back\\Views\\Profiles\\Index.cshtml",
+              "RelativeToolTip": "Job\\Areas\\Back\\Views\\Profiles\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxIAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-17T06:24:02.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_LayoutBack.cshtml",
+              "DocumentMoniker": "C:\\Users\\iSpan\\Desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\Work-Exchange-Platform_v05\\Job\\Job\\Areas\\Back\\Views\\Shared\\_LayoutBack.cshtml",
+              "RelativeDocumentMoniker": "Job\\Areas\\Back\\Views\\Shared\\_LayoutBack.cshtml",
+              "ToolTip": "C:\\Users\\iSpan\\Desktop\\\u5C08\u984C\u5099\u4EFD\u6A94\\merge\\Work-Exchange-Platform_v05\\Job\\Job\\Areas\\Back\\Views\\Shared\\_LayoutBack.cshtml",
+              "RelativeToolTip": "Job\\Areas\\Back\\Views\\Shared\\_LayoutBack.cshtml",
+              "ViewState": "AgIAALQAAAAAAAAAAADwv8gAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-09-17T06:23:43.058Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

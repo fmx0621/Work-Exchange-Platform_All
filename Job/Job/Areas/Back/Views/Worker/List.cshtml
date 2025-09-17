@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Job.Models.TWorkerProfile>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>List</title>
+</head>
+<body>
+<h1>換宿者個人資料</h1>
+    @using (Html.BeginForm())
+    {
+        <div>輸入關鍵字 @Html.TextBox("txtKeyword") <input type="submit" value="查詢" /></div>
+    }
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+              序號
+            </th>         
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenderCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProfilePicture)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+           int count = 0;
+           foreach (var item in Model) {
+               count++;
+            <tr>
+            <td>
+                @count
+            </td>          
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenderCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfilePicture)
+            </td>
+           
+        </tr>
+}}
+    </tbody>
+</table>
+</body>
+</html>

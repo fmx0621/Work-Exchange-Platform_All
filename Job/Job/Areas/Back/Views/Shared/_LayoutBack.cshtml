@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Job</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Job.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="back-wrapper">
+        <header class="app-header navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow p-3 mb-3">
+            <div class="container-fluid">
+                <div class="ms-auto d-flex align-items-center gap-3">
+                    您好，@ViewBag.ManagerName <!-- 使用者名稱 -->
+                    <!-- 登出 -->
+                    <a class="nav-link text-white bg-dark p-1" asp-area="Back" asp-controller="Login" asp-action="Logout">登出</a>
+                </div>
+            </div>
+        </header>
+        <aside class="app-sidebar bg-body-secondary">
+            <div class="sidebar-brand py-3 px-5 mb-5"><a asp-area="Back" asp-controller="Home" asp-action="Index" class="brand-link text-decoration-none text-dark">打工換宿平台</a></div>
+            <div class="sidebar-wrapper">
+                <nav class="mt-2">
+                    <ul class="nav flex-column" id="sidebar-menu">
+
+                        <!-- 使用者管理 -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                               data-bs-toggle="collapse" href="#collapseUser" role="button"
+                               aria-expanded="false" aria-controls="collapseUser">
+                                <span><i class="bi bi-person"></i> 使用者管理(年)</span>
+                                <i class="bi bi-chevron-down toggle-arrow"></i>
+                            </a>
+                            <div class="collapse" id="collapseUser" data-bs-parent="#sidebar-menu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">使用者列表</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">使用者操作紀錄</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 身分管理 -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                               data-bs-toggle="collapse" href="#collapseIdentity" role="button"
+                               aria-expanded="false" aria-controls="collapseIdentity">
+                                <span><i class="bi bi-person"></i> 身分管理(如)</span>
+                                <i class="bi bi-chevron-down toggle-arrow"></i>
+                            </a>
+                            <div class="collapse" id="collapseIdentity" data-bs-parent="#sidebar-menu">
+                                <ul class="nav flex-column ms-3">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="Back" asp-controller="Company" asp-action="List">業主資料</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-dark" asp-area="Back" asp-controller="Worker" asp-action="List">換宿者資料</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 資料審核 -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                               data-bs-toggle="collapse" href="#collapseReview" role="button"
+                               aria-expanded="false" aria-controls="collapseReview">
+                                <span><i class="bi bi-file-earmark-check"></i> 資料審核(如/年)</span>
+                                <i class="bi bi-chevron-down toggle-arrow"></i>
+                            </a>
+                            <div class="collapse" id="collapseReview" data-bs-parent="#sidebar-menu">
+                                <ul class="nav flex-column ms-3">
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">身分審核(如)</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="Manager" asp-action="CommentView">評論審核(年)</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">內容審核(玲)</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                       
+
+                        <!-- 公告管理 -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                               data-bs-toggle="collapse" href="#collapseAnnounce" role="button"
+                               aria-expanded="false" aria-controls="collapseAnnounce">
+                                <span><i class="bi bi-megaphone"></i> 公告管理(馮)</span>
+                                <i class="bi bi-chevron-down toggle-arrow"></i>
+                            </a>
+                            <div class="collapse" id="collapseAnnounce" data-bs-parent="#sidebar-menu">
+                                <ul class="nav flex-column ms-3">
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">新增公告</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">公告列表</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 客服支援 -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                               data-bs-toggle="collapse" href="#collapseSupport" role="button"
+                               aria-expanded="false" aria-controls="collapseSupport">
+                                <span><i class="bi bi-headset"></i> 客服支援(倫)</span>
+                                <i class="bi bi-chevron-down toggle-arrow"></i>
+                            </a>
+                            <div class="collapse" id="collapseSupport" data-bs-parent="#sidebar-menu">
+                                <ul class="nav flex-column ms-3">
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">即時通訊紀錄</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">線上客服紀錄</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">聯絡表單紀錄</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 管理者管理 -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                               data-bs-toggle="collapse" href="#collapseManager" role="button"
+                               aria-expanded="false" aria-controls="collapseManager">
+                                <span><i class="bi bi-person-gear"></i> 管理者管理(年)</span>
+                                <i class="bi bi-chevron-down toggle-arrow"></i>
+                            </a>
+                            <div class="collapse" id="collapseManager" data-bs-parent="#sidebar-menu">
+                                <ul class="nav flex-column ms-3">
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="Manager" asp-action="List">管理員列表</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">管理員操作紀錄</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 申請管理 -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                               data-bs-toggle="collapse" href="#collapseApply" role="button"
+                               aria-expanded="false" aria-controls="collapseApply">
+                                <span><i class="bi bi-journal-check"></i> 申請管理(玲)</span>
+                                <i class="bi bi-chevron-down toggle-arrow"></i>
+                            </a>
+                            <div class="collapse" id="collapseApply" data-bs-parent="#sidebar-menu">
+                                <ul class="nav flex-column ms-3">
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="Apply" asp-action="ApplyList">換宿者申請列表</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="Apply" asp-action="MatchingList">媒合成功列表</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 換宿者問券 -->
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                               data-bs-toggle="collapse" href="#collapseSurvey" role="button"
+                               aria-expanded="false" aria-controls="collapseSurvey">
+                                <span><i class="bi bi-ui-checks"></i> 問券管理(如/馮)</span>
+                                <i class="bi bi-chevron-down toggle-arrow"></i>
+                            </a>
+                            <div class="collapse" id="collapseSurvey" data-bs-parent="#sidebar-menu">
+                                <ul class="nav flex-column ms-3">
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">問券填寫紀錄</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="" asp-action="">問券編輯</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        -->
+
+                        <!-- 職缺管理 -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                               data-bs-toggle="collapse" href="#collapseJob" role="button"
+                               aria-expanded="false" aria-controls="collapseJob">
+                                <span><i class="bi bi-ui-checks"></i> 職缺管理(馮)</span>
+                                <i class="bi bi-chevron-down toggle-arrow"></i>
+                            </a>
+                            <div class="collapse" id="collapseJob" data-bs-parent="#sidebar-menu">
+                                <ul class="nav flex-column ms-3">
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="Job" asp-action="List">刊登列表</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="Job" asp-action="Snapshot">快照建立紀錄(測試用)</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="Job" asp-action="Templete">範例管理</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 履歷管理 -->
+                        <li class="nav-item">
+                            <a class="nav-link d-flex justify-content-between align-items-center"
+                               data-bs-toggle="collapse" href="#collapseWork" role="button"
+                               aria-expanded="false" aria-controls="collapseWork">
+                                <span><i class="bi bi-ui-checks"></i> 履歷管理(倫)</span>
+                                <i class="bi bi-chevron-down toggle-arrow"></i>
+                            </a>
+                            <div class="collapse" id="collapseWork" data-bs-parent="#sidebar-menu">
+                                <ul class="nav flex-column ms-3">
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="Worker" asp-action="List">履歷列表</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="Worker" asp-action="Snapshot">快照建立紀錄(測試用)</a></li>
+                                    <li><a class="nav-link text-dark" asp-area="Back" asp-controller="Worker" asp-action="Templete">範例管理</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        
+                    </ul>
+                </nav>
+
+            </div>
+        </aside>
+        <main class="app-main py-3 px-4">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- 主要區塊 -->
+                    @RenderBody()
+                </div>
+            </div>
+        </main>
+        <footer class="app-footer border-top footer text-muted p-2">
+            共用 Footer
+        </footer>
+    </div>
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

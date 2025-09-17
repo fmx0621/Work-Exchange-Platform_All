@@ -1,0 +1,43 @@
+﻿@model Job.ViewModel.CLoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Areas/Back/Views/Shared/_LayoutBackLogin.cshtml";
+}
+
+<h2 class="text-center mb-4">登入系統</h2>
+
+<form asp-area="Back" asp-controller="Login" asp-action="Login" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group mb-3">
+        <label for="txtAccount">帳號</label>
+        <input name="txtAccount"
+               class="form-control"
+               value="@Model?.txtAccount"
+               placeholder="請輸入帳號" />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="txtPassword">密碼</label>
+        <input name="txtPassword"
+               class="form-control"
+               type="password"
+               value="@Model?.txtPassword"
+               placeholder="請輸入密碼" />
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="確定" class="btn btn-dark w-100" />
+        @* 顯示驗證錯誤或登入失敗訊息 *@
+        @if (!ViewData.ModelState.IsValid)
+        {
+            var error = ViewData.ModelState.Values.SelectMany(v => v.Errors).FirstOrDefault();
+            if (error != null)
+            {
+                <div class="text-danger mb-3">@error.ErrorMessage</div>
+            }
+        }
+    </div>
+</form>

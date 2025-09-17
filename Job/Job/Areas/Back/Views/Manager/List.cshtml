@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Job.Models.TManager>
+
+@{
+    ViewData["Title"] = "home";
+}
+
+<h1>管理員列表</h1>
+@using (Html.BeginForm())
+{
+    <div>輸入關鍵字 @Html.TextBox("txtKeyword") <input type="submit" value="查詢" /></div>
+}
+
+<p>
+    <a asp-action="Create">新增管理者</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                序
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManagerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Account)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermissionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PermissionName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int count = 0;
+            foreach (var item in Model) {
+                count++;
+        <tr>
+            <td>
+                @count
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManagerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Account)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermissionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PermissionName)
+            </td>
+            <td>
+                 @Html.ActionLink("修改", "Edit", new { id = item.ManagerId }) |
+                 @Html.ActionLink("刪除", "Delete", "Manager", new { id = item.ManagerId }, new { onclick = "return confirm('確定要刪除嗎?')" })
+            </td>
+        </tr>
+}}
+    </tbody>
+</table>

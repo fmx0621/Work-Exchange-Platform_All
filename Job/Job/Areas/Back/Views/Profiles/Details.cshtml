@@ -1,0 +1,39 @@
+﻿@model Job.Models.TMemberProfile
+
+<h4>履歷詳細資料</h4>
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">姓名</dt>
+    <dd class="col-sm-10">@Model.Name</dd>
+
+    <dt class="col-sm-2">學歷</dt>
+    <dd class="col-sm-10">@Model.Education</dd>
+
+    <dt class="col-sm-2">語言</dt>
+    <dd class="col-sm-10">@Model.Languages</dd>
+
+    <dt class="col-sm-2">工作經驗</dt>
+    <dd class="col-sm-10">@Model.WorkExperience</dd>
+
+    <dt class="col-sm-2">駕照</dt>
+    <dd class="col-sm-10">@Model.Licenses</dd>
+
+    <dt class="col-sm-2">希望時間</dt>
+    <dd class="col-sm-10">@Model.AvailableFrom?.ToString("yyyy/MM") ~ @Model.AvailableTo?.ToString("yyyy/MM")</dd>
+
+    <dt class="col-sm-2">換宿類型</dt>
+    <dd class="col-sm-10">@Model.PreferredCategories</dd>
+
+    <dt class="col-sm-2">期望待遇</dt>
+    <dd class="col-sm-10">@Model.ExpectedBenefits</dd>
+
+    <dt class="col-sm-2">換宿動機</dt>
+    <dd class="col-sm-10">@Model.Motivation</dd>
+
+    <dt class="col-sm-2">聯絡方式</dt>
+    <dd class="col-sm-10">@Model.ContactIg</dd>
+</dl>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ProfileId">編輯</a> |
+    <a asp-action="Index">返回列表</a>
+</div>

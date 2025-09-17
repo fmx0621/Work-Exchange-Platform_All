@@ -1,0 +1,29 @@
+﻿@model int?
+@{
+    var rating = Model ?? 0;      // 1..5
+}
+<style>
+    /* 建議搬到 _LayoutBack.cshtml 的 <style> 或你的 CSS 檔 */
+    .star-readonly {
+        display: inline-flex;
+        gap: .15rem;
+        line-height: 1;
+        font-size: 1.1rem
+    }
+
+        .star-readonly .star {
+            color: #d0d0d0;
+            user-select: none
+        }
+
+            .star-readonly .star.filled {
+                color: #f6b01e
+            }
+</style>
+
+<span class="star-readonly" aria-label="評分">
+    @for (var i = 1; i <= 5; i++)
+    {
+        <span class="star @(i <= rating ? "filled" : "")">★</span>
+    }
+</span>

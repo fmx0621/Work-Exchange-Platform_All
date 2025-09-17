@@ -1,0 +1,148 @@
+﻿@model Job.ViewModel.ApplyManagementViewModel
+
+@functions {
+    private string OwnerReplyIconHtml(string reply)
+    {
+        return reply switch
+        {
+            "待接受" => "<i class=\"bi bi-hourglass-split text-warning\"></i> 待接受",
+            "已接受" => "<i class=\"bi bi-check-circle text-success\"></i> 已接受",
+            "未接受" => "<i class=\"bi bi-x-circle text-danger\"></i> 未接受",
+            _ => $"<i class=\"bi bi-question-circle text-secondary\"></i> {reply}"
+        };
+    }
+}
+
+
+
+    <h1>換宿者申請列表<i class="fa-solid fa-list-ul"></i></h1>
+
+    <form asp-action="WorkerApplyList" method="get">
+        <div id="QueryPanel" class="card mb-3">
+            <div class="card-header">
+                資料查詢
+            </div>
+            <div class="card-body">
+                <div class="row g-3">
+                    <!-- g-3 是欄位間距 -->
+                    <!-- 關鍵字 -->
+                    <div class="col-md-3">
+                        <label class="form-label">關鍵字</label>
+                        <input type="text" asp-for="txtKeyword" class="form-control" />
+                    </div>
+
+                    <!-- 申請狀態 -->
+                    <div class="col-md-3">
+                        <label class="form-label">應徵狀態</label>
+                        <select asp-for="ApplyStatus" asp-items="ViewBag.StatusList" class="form-select">
+                            <option value="">全部</option>
+                        </select>
+                    </div>
+
+                    <!-- 申請日期起 -->
+                    <div class="col-md-3">
+                        <label class="form-label">申請日期起</label>
+                        <input type="date" asp-for="StartDate" class="form-control" />
+                    </div>
+
+                    <!-- 申請日期迄 -->
+                    <div class="col-md-3">
+                        <label class="form-label">申請日期迄</label>
+                        <input type="date" asp-for="EndDate" class="form-control" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-search"></i>查詢</button>
+            </div>
+        </div>
+    </form>
+
+    <!-- 資料表格 -->
+    <div class="card">
+        <div class="card-body">
+            <table class="table table-bordered table-hover text-center">
+                <thead class="table-info">
+                    <tr>
+                        <th>序號</th>
+                        <th>換宿者姓名</th>
+                        <th>誠徵公司</th>
+                        <th>申請日期</th>
+                        <th>業主回覆</th>
+                        <th>換宿者回覆</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int count = 0;
+                        foreach (var item in Model.TworkerApplies)
+                        {
+                            count++;
+
+                            var admissions = Model.TownerAdmissions?
+                            .Where(a => a.MemberId == item.MemberId)
+                            .Select(a => a.ReplySituation)
+                            ?? Enumerable.Empty<string>();
+
+                            string ownerStatus = admissions.Any()
+                            ? string.Join(", ", admissions)
+                            : "待回覆";
+
+                            <tr>
+                                <td>@count</td>
+                                <td>@item.WorkerName</td>
+                                <td>@item.ApplyOwner</td>
+                                <td>@item.ApplyDate.ToString("yyyy/MM/dd")</td>
+                                <td>
+                                    @if (item.ApplySituation == "待處理")
+                                    {
+                                        <i class="bi bi-hourglass-split text-warning"></i>
+                                        @item.ApplySituation
+                                    }
+                                    else if (item.ApplySituation == "未錄取")
+                                    {
+                                        <i class="bi bi-x-circle text-danger"></i>
+                                        @item.ApplySituation
+                                    }
+                                    else if (item.ApplySituation == "已錄取")
+                                    {
+                                        <i class="bi bi-check-circle text-success"></i>
+                                        @item.ApplySituation
+                                    }
+                                </td>
+                                <td>@if (admissions.Any())
+                                    {
+                                        foreach (var reply in admissions)
+                                        {
+                                            @Html.Raw(OwnerReplyIconHtml(reply))<br />
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(OwnerReplyIconHtml("待回覆"))
+                                    }</td>
+                                <td>
+                                    <!-- 詳細資訊 -->
+                                    <a asp-action="applyDetail" asp-controller="Apply" asp-route-id="@item.MemberId"
+                                       class="btn btn-warning btn-sm">
+                                        <i class="bi bi-info-circle"></i> 詳細資訊
+                                    </a>
+                                    
+                                    <!-- 刪除 -->
+                                    <!--
+                                    <a asp-action="Delete" asp-controller="Apply" asp-area="Back" asp-route-id="item.MemberId"
+                                       class="btn btn-danger btn-sm"
+                                       onclick="return confirm('確定要刪除嗎?')">
+                                        <i class="bi bi-trash"></i> 刪除
+                                    </a>
+                                    -->
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

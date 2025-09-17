@@ -1,0 +1,83 @@
+﻿@model Job.Models.CJobItem
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <h2>@Model.jobPosting.PostTitle</h2>
+
+    <!-- 公司與狀態 -->
+    <p><strong>公司：</strong> @Model.Company.Name (@Model.Company.Type)</p>
+    <p><strong>狀態：</strong> @Model.jobPostingStatus.StatusName</p>
+
+    <!-- 刊登與申請資訊 -->
+    <p>
+        <strong>刊登期間：</strong>
+        @(Model.jobPosting.PublishStartDate.HasValue
+                ? Model.jobPosting.PublishStartDate.Value.ToString("yyyy-MM-dd")
+                : "")
+        ~
+        @(Model.jobPosting.PublishEndDate.HasValue
+                ? Model.jobPosting.PublishEndDate.Value.ToString("yyyy-MM-dd")
+                : "")
+    </p>
+
+    <p>
+        <strong>申請截止日：</strong>
+        @(Model.jobPosting.ApplicationDeadline.HasValue
+                ? Model.jobPosting.ApplicationDeadline.Value.ToString("yyyy-MM-dd")
+                : "")
+    </p>
+
+    <p><strong>建立時間：</strong> @Model.jobPosting.CreatedAt.Value.ToString("yyyy-MM-dd")</p>
+    <p><strong>最後更新：</strong> @Model.jobPosting.UpdatedAt.Value.ToString("yyyy-MM-dd")</p>
+
+    <hr />
+
+    <h3>詳細內容</h3>
+    <p><strong>工作內容：</strong> @Model.jobPostingDetail.Description</p>
+    <p><strong>需求人數：</strong> @Model.jobPostingDetail.PeopleRequired</p>
+    <p><strong>工作時間：</strong> @Model.jobPostingDetail.WorkingHours</p>
+    <p><strong>休假：</strong> @Model.jobPostingDetail.DayOff</p>
+    <p><strong>是否需經驗：</strong> @(Model.jobPostingDetail.RequiredExperience == true ? "是" : "否")</p>
+    <p><strong>需求技能：</strong> @Model.jobPostingDetail.RequiredSkills</p>
+    <p><strong>需求證照：</strong> @Model.jobPostingDetail.RequiredLincenses</p>
+    <p><strong>福利標籤：</strong> @Model.jobPostingDetail.BenefitsTags</p>
+    <p><strong>福利說明：</strong> @Model.jobPostingDetail.BenefitsText</p>
+    <p><strong>注意事項：</strong> @Model.jobPostingDetail.Notice</p>
+
+    <p>
+        <strong>換宿期間：</strong>
+        @(Model.jobPostingDetail.StartDate.HasValue
+                ? Model.jobPostingDetail.StartDate.Value.ToString("yyyy-MM-dd")
+                : "")
+        ~
+        @(Model.jobPostingDetail.EndDate.HasValue
+                ? Model.jobPostingDetail.EndDate.Value.ToString("yyyy-MM-dd")
+                : "")
+    </p>
+
+    @if (!string.IsNullOrEmpty(Model.jobPostingDetail.CoverImage))
+    {
+        <p>
+            <strong>封面圖：</strong><br />
+            <img src="@Model.jobPostingDetail.CoverImage" alt="封面圖" width="300" />
+        </p>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.jobPostingDetail.EnvironmentImage))
+    {
+        <p>
+            <strong>環境圖片：</strong><br />
+            <img src="@Model.jobPostingDetail.EnvironmentImage" alt="環境圖" width="300" />
+        </p>
+    }
+<div>
+    <a asp-action="List">返回</a>
+</div>
+</body>
+</html>
